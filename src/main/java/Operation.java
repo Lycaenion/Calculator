@@ -15,7 +15,7 @@ public class Operation {
     }
 
 
-    //I assume that the instruction file will always contain only integers, so the division will round the result
+    //I assume that the instruction file will always contain only integers
     public int divide(int result, int term) {
         return result / term;
     }
