@@ -14,7 +14,7 @@ public class Operation {
         return result - term;
     }
 
-    public int divide(int result, int term){
+    public int divide(int result, int term) {
         return result / term;
     }
 }

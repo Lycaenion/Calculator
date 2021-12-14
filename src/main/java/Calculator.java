@@ -4,20 +4,19 @@ import static java.lang.Integer.parseInt;
 
 public class Calculator {
 
-    public void operations(ArrayList<String> instructions){
+    public void operations(ArrayList<String> instructions) {
         Operation operationHandler = new Operation();
 
         int applyPosition = instructions.size()-1;
         String applyLine = instructions.get(applyPosition);
-        int apply = parseApply(applyLine);
-        int result = apply;
+        int result = parseApply(applyLine);
 
-        for (int i = 0; i <= instructions.size()-2 ; i++){
+        for (int i = 0; i <= instructions.size()-2 ; i++) {
 
             String operation = instructions.get(i).split(" ")[0].toLowerCase();
             int term = parseInt(instructions.get(i).split(" ")[1]);
 
-            switch (operation){
+            switch (operation) {
                 case "add":
                     result = operationHandler.add(result, term);
                     break;
@@ -30,15 +29,13 @@ public class Calculator {
                 case "divide":
                     result = operationHandler.divide(result, term);
                     break;
-                default:
-                    System.out.println("There seems to be something wrong with the file.");
             }
         }
-        System.out.println("Result = " + result);
+        System.out.println(result);
     }
 
 
-    public int parseApply(String applyLine){
+    public int parseApply(String applyLine) {
         String[] strings = applyLine.split(" ");
         return parseInt(strings[1]);
     }
