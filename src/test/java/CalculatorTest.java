@@ -3,9 +3,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.io.ByteArrayOutputStream;
-import java.io.OutputStream;
-import java.io.PrintStream;
 import java.util.ArrayList;
 
 public class CalculatorTest {
@@ -37,9 +34,9 @@ public class CalculatorTest {
     @Test
     @DisplayName("Should find the value of apply in a string")
     public void findApplyLineValueTest(){
-        Assertions.assertEquals(4, calculator.getApply(testString1));
-        Assertions.assertEquals(5, calculator.getApply(testString2));
-        Assertions.assertEquals(1, calculator.getApply(testString3));
+        Assertions.assertEquals(4, calculator.parseApply(testString1));
+        Assertions.assertEquals(5, calculator.parseApply(testString2));
+        Assertions.assertEquals(1, calculator.parseApply(testString3));
     }
 
 

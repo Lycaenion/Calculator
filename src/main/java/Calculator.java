@@ -4,46 +4,41 @@ import static java.lang.Integer.parseInt;
 
 public class Calculator {
 
-    public void operations(ArrayList<String> listOfInstructions){
-        int applyPosition = listOfInstructions.size()-1;
-        String applyLine = listOfInstructions.get(applyPosition);
-        int apply = getApply(applyLine);
+    public void operations(ArrayList<String> instructions){
+        Operation operationHandler = new Operation();
+
+        int applyPosition = instructions.size()-1;
+        String applyLine = instructions.get(applyPosition);
+        int apply = parseApply(applyLine);
         int result = apply;
 
-        //If the file only contains the apply line
-        if(listOfInstructions.size() == 1){
-            System.out.println(result);
-        }else{
-            //If the file has multiple instructions
-            for (int i = 0; i <= listOfInstructions.size()-2 ; i++){
+        for (int i = 0; i <= instructions.size()-2 ; i++){
 
-                String operation = listOfInstructions.get(i).split(" ")[0].toLowerCase();
-                String term = listOfInstructions.get(i).split(" ")[1];
+            String operation = instructions.get(i).split(" ")[0].toLowerCase();
+            int term = parseInt(instructions.get(i).split(" ")[1]);
 
-                switch (operation){
-                    case "add":
-                        System.out.println("add");
-                        break;
-                    case "multiply":
-                        System.out.println("multiply");
-                        break;
-                    case "subtract":
-                        System.out.println("subtract");
-                        break;
-                    case "divide":
-                        System.out.println("divide");
-                        break;
-                    default:
-                        System.out.println("There seems to be something wrong with the file.");
-                }
+            switch (operation){
+                case "add":
+                    result = operationHandler.add(result, term);
+                    break;
+                case "multiply":
+                    result = operationHandler.multiply(result, term);
+                    break;
+                case "subtract":
+                    result = operationHandler.subtract(result, term);
+                    break;
+                case "divide":
+                    result = operationHandler.divide(result, term);
+                    break;
+                default:
+                    System.out.println("There seems to be something wrong with the file.");
             }
-            System.out.println("Result = " + result);
-
         }
+        System.out.println("Result = " + result);
     }
 
 
-    public int getApply(String applyLine){
+    public int parseApply(String applyLine){
         String[] strings = applyLine.split(" ");
         return parseInt(strings[1]);
     }
