@@ -11,10 +11,14 @@ edition
 
 to build .jar file in command line:
     navigate to project
+    ```
     mvn clean install
+    ```
 
 To run program in command line:
+    ```
     java -jar Calculator-1.0-SNAPSHOT.jar <path to file>
+    ```
 
 In building the .jar file with Maven in the commandline I experienced
 initial problems. The default maven installation (3.6.3) on my linux system (ubuntu 20.04) did not
