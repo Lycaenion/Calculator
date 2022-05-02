@@ -1,3 +1,11 @@
+# Calculator test with focus on unit testing
+
+How it works: the calculator takes a file with instructions and calculates the result of the instructions. The instructions contains keywords and numbers (see files in the resources folder for structure and examples). Instructions are loaded from file and results are output to the screen. Any number of instructions can be specified and can be any binary operations (e.g. add, divide, subtract ect) and ignores mathematical precedence. 
+
+
+
+## Building the application
+
 .jar file has been built using the Maven tool in IntelliJ community edition from JetBrains.
 edition
 
